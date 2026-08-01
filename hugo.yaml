@@ -1,0 +1,16 @@
+baseURL: "https://gjnoh02.github.io/"
+languageCode: ko
+defaultContentLanguage: ko
+
+title: "규진 블로그"
+theme: "PaperMod"
+
+params:
+  env: production
+  description: "규진의 백엔드 개발 공부 블로그입니다."
+  author: "규진"
+  defaultTheme: dark
+  
+  homeInfoParams:
+    Title: "Hello, I'm Gyujin"
+    Content: "Backend Development · Study Record"
