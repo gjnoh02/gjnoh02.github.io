@@ -1,11 +1,9 @@
-# Hugo 배포를 위한 깃허브 액션 설정
 name: Deploy Hugo site to Pages
 
 on:
   push:
     branches:
       - main
-
   workflow_dispatch:
 
 permissions:
@@ -17,10 +15,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive # 서브모듈(PaperMod 테마) 자동 다운로드 핵심 설정!
+          submodules: recursive
           fetch-depth: 0
 
       - name: Setup Hugo
@@ -37,11 +31,16 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Build
+      - name: Build Hugo
         run: hugo --minify
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
 
   deploy:
     environment:
