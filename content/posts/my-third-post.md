@@ -1,6 +1,6 @@
 +++
 date = '2026-08-06T21:07:00+09:00'
-draft = true
+draft = false
 title = '8월 6일 블로그'
 +++
 8월 6일 한 일
